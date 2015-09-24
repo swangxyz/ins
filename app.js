@@ -1,19 +1,19 @@
 angular.module('Ins', ['ngRoute', 'ngMessages']).config(function ($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'views/home.html',
+      templateUrl: 'view/home.html',
       controller: 'HomeCtrl'
     })
     .when('/login', {
-      templateUrl: 'views/login.html',
+      templateUrl: 'view/login.html',
       controller: 'LoginCtrl'
     })
     .when('/signup', {
-      templateUrl: 'views/signup.html',
+      templateUrl: 'view/signup.html',
       controller: 'SignupCtrl'
     })
     .when('/photo/:id', {
-      templateUrl: 'views/detail.html',
+      templateUrl: 'view/detail.html',
       controller: 'DetailCtrl'
     })
     .otherwise('/');
