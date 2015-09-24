@@ -1,0 +1,32 @@
+{
+  "name": "ins",
+  "version": "0.1.0",
+  "description": "a instagram mock-up app",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.4.6",
+    "angular-messages": "^1.4.6",
+    "angular-route": "^1.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalpaca/ins.git"
+  },
+  "keywords": [
+    "instagram",
+    "nodejs",
+    "http-server",
+    "bootstrap-material-design",
+    "satellizer"
+  ],
+  "author": "steven wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kalpaca/ins/issues"
+  },
+  "homepage": "https://github.com/kalpaca/ins#readme"
+}
