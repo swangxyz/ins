@@ -1,45 +1,46 @@
 <html ng-app="Ins">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>A Instagram mirror - Powered by MEAN and Satellizer</title>
-	<!-- Twitter Bootstrap -->
-	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Material Design for Bootstrap -->
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/roboto.min.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
-	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
-	<link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Instagram mirror - Powered by MEAN and Satellizer</title>
+    <!-- Twitter Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design for Bootstrap -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/roboto.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-	<div class="navbar navbar-default navbar-static-top">
-		<div class="container">
-			<ul class="nav navbar-nav">
-				<a href="/" class="navbar-brand">
-					<i class="ion-images"></i> Instest
-				</a>
-				<li><a href="#/">Home</a></li>
-				<li><a href="#/login">Log in</a></li>
-				<li><a href="#/signup">Sign up</a></li>
-				<li><a ng-click="logout()" href="">Logout</a></li>
-			</ul>
-		</div>
-		<div ng-view></div>
-
-		<script src="node_modules/angular/angular.min.js"></script>
-		<script src="node_modules/angular-route/angular-route.min.js"></script>
-		<script src="node_modules/angular-messages/angular-messages.min.js"></script>
-		<script src="app.js"></script>
-		<script src="controller/home.js"></script>
-		<script src="controller/navbar.js"></script>
-		<script src="controller/signup.js"></script>
-		<script src="controller/login.js"></script>
-		<script src="controller/detail.js"></script>
-
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <a href="/" class="navbar-brand">
+                    <i class="ion-images"></i> Instest
+                </a>
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/login">Log in</a></li>
+                <li><a href="#/signup">Sign up</a></li>
+                <li><a ng-click="logout()" href="">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div ng-view></div>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-environment/dist/angular-environment.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="node_modules/satellizer/satellizer.min.js"></script>
+    <script src="app.js/"></script>
+    <script src="controller/home.js"></script>
+    <script src="controller/navbar.js"></script>
+    <script src="controller/signup.js"></script>
+    <script src="controller/login.js"></script>
+    <script src="controller/detail.js"></script>
 </body>
 
 </html>
