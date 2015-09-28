@@ -8,13 +8,13 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
             },
             vars: {
                 development: {
-                    serverUrl: '//localhost:8080',
+                    serverUrl: '//localhost:3000',
                     apiUrl: '//localhost/api',
                     staticUrl: '//localhost/static'
                         // anotherCustomVar: ''
                 },
                 production: {
-                    serverUrl: '//localhost:8080',
+                    serverUrl: '//localhost:3000',
                     apiUrl: '//',
                     staticUrl: '//'
                         // anotherCustomVar: ''
@@ -46,7 +46,7 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
         $serverUrl = envServiceProvider.read('serverUrl')
 
         $authProvider.loginUrl = $serverUrl + '/auth/login';
-        $authProvider.signupUrl = $serverUrl + 'auth/signup';
+        $authProvider.signupUrl = $serverUrl + '/auth/signup';
         $authProvider.oauth2({
             name: 'interest',
             url: 'http://localhost:8080/auth/instagram',
@@ -57,5 +57,5 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
             authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
         });
 
-
+        
     });
