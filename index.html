@@ -28,13 +28,14 @@
                 <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <!--
-                <li ng-if="isAuthenticated() && currentUser && currentUser.username">
-                    <a href="http://instagram.com/"+{{currentUser.username}}>
-                        <img class="media-object img-rounded" ng-src={{currentUser.picture}}"> 
+                
+                <li id="avatar-line" ng-if="isAuthenticated() && currentUser && currentUser.username">
+                    <a id="nav-avatar-a" href="http://instagram.com/{{currentUser.username}}">
+                        <img class="media-object img-rounded nav-avatar" ng-src="{{currentUser.picture}}"> 
+                        <span>@{{currentUser.username}}</span>
                     </a>
                 </li>
-                -->
+                
             </ul>
         </div>
     </div>
