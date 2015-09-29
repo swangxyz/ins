@@ -16,16 +16,25 @@
 </head>
 
 <body>
-    <div class="navbar navbar-default navbar-static-top">
+    <div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top">
         <div class="container">
             <ul class="nav navbar-nav">
-                <a href="/" class="navbar-brand">
-                    <i class="ion-images"></i> Instest
+                <a href="#/" class="navbar-brand">
+                    <i class="ion-images"></i> Interest
                 </a>
                 <li><a href="#/">Home</a></li>
-                <li><a href="#/login">Log in</a></li>
-                <li><a href="#/signup">Sign up</a></li>
-                <li><a ng-click="logout()" href="">Logout</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/login">Log in</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/signup">Sign up</a></li>
+                <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--
+                <li ng-if="isAuthenticated() && currentUser && currentUser.username">
+                    <a href="http://instagram.com/"+{{currentUser.username}}>
+                        <img class="media-object img-rounded" ng-src={{currentUser.picture}}"> 
+                    </a>
+                </li>
+                -->
             </ul>
         </div>
     </div>
@@ -42,6 +51,7 @@
     <script src="controller/signup.js"></script>
     <script src="controller/login.js"></script>
     <script src="controller/detail.js"></script>
+    <script src="services/api.js"></script>
 </body>
 
 </html>

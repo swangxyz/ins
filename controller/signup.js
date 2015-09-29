@@ -1,5 +1,5 @@
 angular.module('Ins')
-.controller('SignupCtrl',function($scope,$auth){
+.controller('SignupCtrl',function($scope, $location, $auth){
 	$scope.signup = function(){
 		var user = {
 			email: $scope.email,
@@ -7,6 +7,10 @@ angular.module('Ins')
 		};
 	
 		$auth.signup(user)
+		.then(function(response){
+ 			$auth.setToken(response);
+          	$location.path('/');
+		})
 		.catch(function(response) {
 			console.log(response.data);
 		})

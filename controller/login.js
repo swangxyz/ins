@@ -1,9 +1,10 @@
 angular.module('Ins').controller('LoginCtrl', function($scope, $window, $location, $rootScope, $auth) {
 	$scope.instagramLogin = function() {
-		$auth.authenticate('instagram')
+		$auth.authenticate('interest')
 		.then(function(response) {
 			$window.localStorage.currentUser = JSON.parse($window.localStorage.currentUser);
 			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+			$location.path( "/" );
 		})
 		.catch(function(response) {
 			console.log(response.data);
@@ -15,6 +16,7 @@ angular.module('Ins').controller('LoginCtrl', function($scope, $window, $locatio
 		.then(function(response) {
 			$window.localStorage.currentUser = JSON.stringify(response.data.user);
 			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+			$location.path( "/" );
 		})
 		.catch(function(response) {
 			$scope.errorMessage = {};

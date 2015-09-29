@@ -1,23 +1,25 @@
 angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
-    .config(function($routeProvider, envServiceProvider, $authProvider) {
+    .config(function ($routeProvider, envServiceProvider, $authProvider) {
         envServiceProvider.config({
             domains: {
                 development: ['localhost:8080', 'dev.local'],
                 production: ['', '', '']
-                    // anotherStage: []
+                // anotherStage: []
             },
             vars: {
                 development: {
                     serverUrl: '//localhost:3000',
+                    clientUrl: 'http://localhost:8080',
                     apiUrl: '//localhost/api',
                     staticUrl: '//localhost/static'
-                        // anotherCustomVar: ''
+                    // anotherCustomVar: ''
                 },
                 production: {
                     serverUrl: '//localhost:3000',
+                    clientUrl: '//localhost:8080',
                     apiUrl: '//',
                     staticUrl: '//'
-                        // anotherCustomVar: ''
+                    // anotherCustomVar: ''
                 }
             }
         });
@@ -43,19 +45,22 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
 
         envServiceProvider.set('development');
         //envService.set('production');
-        $serverUrl = envServiceProvider.read('serverUrl')
-
+        $serverUrl = envServiceProvider.read('serverUrl');
+        $clientUrl = envServiceProvider.read('clientUrl');
         $authProvider.loginUrl = $serverUrl + '/auth/login';
         $authProvider.signupUrl = $serverUrl + '/auth/signup';
         $authProvider.oauth2({
             name: 'interest',
-            url: 'http://localhost:8080/auth/instagram',
-            redirectUri: 'http://localhost:3000',
+            url: $serverUrl + '/auth/instagram',
+            redirectUri: $clientUrl,
+            clientId: '58394c6d6aae436392eb7898d80d33ea',
             requiredUrlParams: ['scope'],
             scope: ['likes'],
             scopeDelimiter: '+',
             authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
         });
-
-        
+    }).run(function ($rootScope, $window, $auth) {
+        if ($auth.isAuthenticated() && $window.localStorage.currentUser) {
+            $rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+        }
     });
