@@ -47,5 +47,6 @@
   "bugs": {
     "url": "https://github.com/kalpaca/ins/issues"
   },
-  "homepage": "https://github.com/kalpaca/ins#readme"
+  "homepage": "https://github.com/kalpaca/ins#readme",
+  "main": "server/app.js"
 }
