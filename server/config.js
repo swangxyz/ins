@@ -1,6 +1,6 @@
 var path = require('path'),
-    rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
+  rootPath = path.normalize(__dirname + '/..'),
+  env = process.env.NODE_ENV || 'development';
 
 var config = {
   development: {
@@ -9,9 +9,9 @@ var config = {
       name: 'server'
     },
     port: 3000,
-    db: 'localhost',
+    db: 'mongodb://hackhands:hackhands@ds063140.mongolab.com:63140/instagram',
     clientSecret: process.env.clientSecret || 'a9bd8a1b2d974c928b4fc1797339bdc8',
-	tokenSecret: process.env.tokenSecret || 'this is a volleyball.'
+    tokenSecret: process.env.tokenSecret || 'this is a volleyball.'
   },
 
   test: {
@@ -31,7 +31,7 @@ var config = {
     port: 3000,
     db: 'mongodb://localhost/server-production'
   }
-  
+
 
 
 };
