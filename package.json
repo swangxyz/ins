@@ -33,7 +33,7 @@
     "gulp-header": "^1.7.1",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-uglify": "^1.4.1",
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/kalpaca/ins.git"
