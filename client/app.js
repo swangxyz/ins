@@ -8,17 +8,15 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
             },
             vars: {
                 development: {
-                    serverUrl: '//localhost:3000',
+                    serverUrl: 'http://localhost:3000',
                     clientUrl: 'http://localhost:8080',
-                    apiUrl: '//localhost/api',
-                    staticUrl: '//localhost/static'
+
                     // anotherCustomVar: ''
                 },
                 production: {
-                    serverUrl: '//localhost:3000',
-                    clientUrl: '//localhost:8080',
-                    apiUrl: '//',
-                    staticUrl: '//'
+                    serverUrl: 'http://localhost:3000',
+                    clientUrl: 'http://localhost:8080',
+
                     // anotherCustomVar: ''
                 }
             }
@@ -60,7 +58,7 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
             authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
         });
     }).run(function ($rootScope, $window, $auth) {
-        if ($auth.isAuthenticated() && $window.localStorage.currentUser) {
+        if ($auth.isAuthenticated()) {
             $rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
         }
     });

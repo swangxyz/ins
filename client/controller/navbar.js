@@ -2,8 +2,9 @@ angular.module('Ins').controller('NavbarCtrl', function($scope, $rootScope, $win
 	$scope.isAuthenticated = function(){
 		return $auth.isAuthenticated();
 	};
-	$scope.logout = function() {
-		$auth.logout();
+	$scope.logout = function() {		
+		$rootScope.currentUser = null;
 		delete $window.localStorage.currentUser;
+		$auth.logout();
 	};
 });

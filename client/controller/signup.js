@@ -7,10 +7,6 @@ angular.module('Ins')
 		};
 	
 		$auth.signup(user)
-		.then(function(response){
- 			$auth.setToken(response);
-          	$location.path('/');
-		})
 		.catch(function(response) {
 			console.log(response.data);
 		})
