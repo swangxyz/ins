@@ -41,9 +41,14 @@ app.set('view engine', 'jade');
 
 
 app.use(logger('dev'));
+
+var whitelist = ['http://localhost:8080', 'http://stevenw.xyz'];
 var corsOptions = {
-	origin: 'http://localhost:8080',
-	credentials: true
+  origin: function(origin, callback){
+    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  },
+  credentials: true
 };
 app.use(compress());
 app.use(cors(corsOptions));

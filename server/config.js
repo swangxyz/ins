@@ -32,7 +32,7 @@ var config = {
     },
     port: 3000,
     db: 'mongodb://hackhands:hackhands@ds063140.mongolab.com:63140/instagram',
-    clientSecret: process.env.clientSecret || 'a9bd8a1b2d974c928b4fc1797339bdc8',
+    clientSecret: process.env.clientSecret || 'bbf546e381534301b36461d8c278f61c',
     tokenSecret: process.env.tokenSecret || 'this is a volleyball.'
   }
 
