@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a instagram demo server by MEAN stack",
   "scripts": {
-    "start": "node server/bin/www"
+    "start": "node server/app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.3.0",
