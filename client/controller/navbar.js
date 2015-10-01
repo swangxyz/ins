@@ -1,10 +1,10 @@
-angular.module('Ins').controller('NavbarCtrl', function($scope, $rootScope, $window, $auth){
-	$scope.isAuthenticated = function(){
+angular.module('Ins').controller('NavbarCtrl', function ($scope, $rootScope, $window, $auth) {
+	$scope.isAuthenticated = function () {
 		return $auth.isAuthenticated();
 	};
-	$scope.logout = function() {		
+	$scope.logout = function () {
 		$rootScope.currentUser = null;
-		delete $window.localStorage.currentUser;
+		$window.localStorage.currentUser = null;
 		$auth.logout();
 	};
 });

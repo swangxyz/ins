@@ -1,7 +1,6 @@
-angular.module('Ins',['environment']).factory('API', function ($http,envServiceProvider) {
-  envServiceProvider.set('development');
-  //envService.set('production');
-  $serverUrl = envServiceProvider.read('serverUrl');
+angular.module('Ins').factory('API', function ($http) {
+
+  $serverUrl = "https://ins-server.herokuapp.com";
   return {
     getFeed: function () {
       return $http.get($serverUrl+'/api/feed');

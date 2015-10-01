@@ -3,19 +3,21 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
         envServiceProvider.config({
             domains: {
                 development: ['localhost:8080', 'dev.local'],
-                production: ['', '', '']
+                production: ['stevenw.xyz', 'stevenw.xyz', '']
+                
                 // anotherStage: []
             },
             vars: {
                 development: {
                     serverUrl: 'http://localhost:3000',
                     clientUrl: 'http://localhost:8080',
-
+                    clientId: '58394c6d6aae436392eb7898d80d33ea'
                     // anotherCustomVar: ''
                 },
                 production: {
-                    serverUrl: 'http://localhost:3000',
-                    clientUrl: 'http://localhost:8080',
+                    serverUrl: 'https://ins-server.herokuapp.com',
+                    clientUrl: 'http://stevenw.xyz/ins',
+                    clientId: '15eaa20c07e24ce289a9ecf8331c1b2a'
 
                     // anotherCustomVar: ''
                 }
@@ -41,24 +43,27 @@ angular.module('Ins', ['ngRoute', 'ngMessages', 'satellizer', 'environment'])
             })
             .otherwise('/');
 
-        envServiceProvider.set('development');
-        //envService.set('production');
+        //envServiceProvider.set('development');
+        envServiceProvider.set('production');
         $serverUrl = envServiceProvider.read('serverUrl');
         $clientUrl = envServiceProvider.read('clientUrl');
+        $clientId = envServiceProvider.read('clientId');
         $authProvider.loginUrl = $serverUrl + '/auth/login';
         $authProvider.signupUrl = $serverUrl + '/auth/signup';
         $authProvider.oauth2({
             name: 'interest',
             url: $serverUrl + '/auth/instagram',
             redirectUri: $clientUrl,
-            clientId: '58394c6d6aae436392eb7898d80d33ea',
+            clientId: $clientId,
             requiredUrlParams: ['scope'],
             scope: ['likes'],
             scopeDelimiter: '+',
             authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
         });
     }).run(function ($rootScope, $window, $auth) {
-        if ($auth.isAuthenticated()) {
+        if ($auth.isAuthenticated() && $window.localStorage.currentUser) {
             $rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+        } else {
+            $rootScope.currentUser = null;
         }
     });
